@@ -17,6 +17,7 @@ public class Best_deal {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        System.out.println("hani hnééé :D");
     }
     
 }
