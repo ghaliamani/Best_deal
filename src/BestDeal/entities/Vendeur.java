@@ -154,6 +154,5 @@ public class Vendeur {
     public String toString() {
         return "Vendeur{" + "Id_Vendeur=" + Id_Vendeur + ", Nom_Vendeur=" + Nom_Vendeur + ", Image_Vendeur=" + Image_Vendeur + ", Adresse_Vendeur=" + Adresse_Vendeur + ", Telephone_Vendeur=" + Telephone_Vendeur + ", Email_Vendeur=" + Email_Vendeur + ", Responsable=" + Responsable + ", localisation=" + localisation + '}';
     }
-    
-    
+
 }
