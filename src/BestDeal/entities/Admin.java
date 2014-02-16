@@ -15,7 +15,7 @@ public class Admin {
 
     private String Login_Admin;
     private String Mot_De_Passe_Admin;
-
+    private String u;
     public Admin() {
     }
 
