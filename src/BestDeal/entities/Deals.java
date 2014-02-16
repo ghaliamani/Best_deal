@@ -15,6 +15,7 @@ import java.util.Objects;
 public class Deals {
 
     private int Id_Deal;
+    private Categorie categorie;
     private String Nom_Deal;
     private String Description_Deal;
     private String Description_Detaillé_Deal;
@@ -30,8 +31,9 @@ public class Deals {
     public Deals() {
     }
 
-    public Deals(int Id_Deal, String Nom_Deal, String Description_Deal, String Description_Detaillé_Deal, String Image_Deal, Double Prix_De_Vente_Deal, Double Prix_Original_Deal, Date Date_Publication_Deal, Date Date_Expiration_Deal, String Condition_De_Vente_Deal, int Quantite_Deal, int Nbr_Max_Reservation_Deal) {
+    public Deals(int Id_Deal, Categorie categorie, String Nom_Deal, String Description_Deal, String Description_Detaillé_Deal, String Image_Deal, Double Prix_De_Vente_Deal, Double Prix_Original_Deal, Date Date_Publication_Deal, Date Date_Expiration_Deal, String Condition_De_Vente_Deal, int Quantite_Deal, int Nbr_Max_Reservation_Deal) {
         this.Id_Deal = Id_Deal;
+        this.categorie = categorie;
         this.Nom_Deal = Nom_Deal;
         this.Description_Deal = Description_Deal;
         this.Description_Detaillé_Deal = Description_Detaillé_Deal;
@@ -45,6 +47,8 @@ public class Deals {
         this.Nbr_Max_Reservation_Deal = Nbr_Max_Reservation_Deal;
     }
 
+   
+
     public int getId_Deal() {
         return Id_Deal;
     }
@@ -52,6 +56,15 @@ public class Deals {
     public void setId_Deal(int Id_Deal) {
         this.Id_Deal = Id_Deal;
     }
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
+    
 
     public String getNom_Deal() {
         return Nom_Deal;

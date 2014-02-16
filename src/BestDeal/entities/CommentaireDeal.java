@@ -16,6 +16,8 @@ import java.util.Objects;
 public class CommentaireDeal {
     
     private int Id_Commentaire;
+    private Client client;
+    private Deals deals;
     private String Titre_Commentaire;
     private String Libelle_Commentaire;
     private Date Date_Commentaire;
@@ -24,8 +26,10 @@ public class CommentaireDeal {
     public CommentaireDeal() {
     }
 
-    public CommentaireDeal(int Id_Commentaire, String Titre_Commentaire, String Libelle_Commentaire, Date Date_Commentaire, int Note) {
+    public CommentaireDeal(int Id_Commentaire, Client client, Deals deals, String Titre_Commentaire, String Libelle_Commentaire, Date Date_Commentaire, int Note) {
         this.Id_Commentaire = Id_Commentaire;
+        this.client = client;
+        this.deals = deals;
         this.Titre_Commentaire = Titre_Commentaire;
         this.Libelle_Commentaire = Libelle_Commentaire;
         this.Date_Commentaire = Date_Commentaire;
@@ -38,6 +42,22 @@ public class CommentaireDeal {
 
     public void setId_Commentaire(int Id_Commentaire) {
         this.Id_Commentaire = Id_Commentaire;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Deals getDeals() {
+        return deals;
+    }
+
+    public void setDeals(Deals deals) {
+        this.deals = deals;
     }
 
     public String getTitre_Commentaire() {
@@ -74,12 +94,10 @@ public class CommentaireDeal {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 67 * hash + this.Id_Commentaire;
-        hash = 67 * hash + Objects.hashCode(this.Titre_Commentaire);
-        hash = 67 * hash + Objects.hashCode(this.Libelle_Commentaire);
-        hash = 67 * hash + Objects.hashCode(this.Date_Commentaire);
-        hash = 67 * hash + this.Note;
+        int hash = 5;
+        hash = 71 * hash + this.Id_Commentaire;
+        hash = 71 * hash + Objects.hashCode(this.client);
+        hash = 71 * hash + Objects.hashCode(this.deals);
         return hash;
     }
 
@@ -95,20 +113,19 @@ public class CommentaireDeal {
         if (this.Id_Commentaire != other.Id_Commentaire) {
             return false;
         }
-        if (!Objects.equals(this.Titre_Commentaire, other.Titre_Commentaire)) {
+        if (!Objects.equals(this.client, other.client)) {
             return false;
         }
-        if (!Objects.equals(this.Libelle_Commentaire, other.Libelle_Commentaire)) {
-            return false;
-        }
-        if (!Objects.equals(this.Date_Commentaire, other.Date_Commentaire)) {
-            return false;
-        }
-        if (this.Note != other.Note) {
+        if (!Objects.equals(this.deals, other.deals)) {
             return false;
         }
         return true;
     }
+
+    
+
+   
+   
 
     @Override
     public String toString() {

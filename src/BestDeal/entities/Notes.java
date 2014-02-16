@@ -15,6 +15,8 @@ import java.util.Objects;
  */
 public class Notes {
     
+    private Vendeur vendeur;
+    private Client client;
     private String Note;
     private Date Date_note;
 

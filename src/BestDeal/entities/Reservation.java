@@ -16,6 +16,7 @@ import java.util.Objects;
 public class Reservation {
     
     private int Num_Reservation;
+    private Client client;
     private boolean Statut_Reservation;
     private Date Date_Reservation;
 
@@ -36,6 +37,15 @@ public class Reservation {
         this.Num_Reservation = Num_Reservation;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    
     public boolean isStatut_Reservation() {
         return Statut_Reservation;
     }

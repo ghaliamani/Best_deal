@@ -16,14 +16,16 @@ public class Categorie {
     private int Id_Categorie;
     private String Nom_Categorie;
     private String Libelle_Categorie;
+    private Vendeur vendeur;
 
     public Categorie() {
     }
 
-    public Categorie(int Id_Categorie, String Nom_Categorie, String Libelle_Categorie) {
+    public Categorie(int Id_Categorie, String Nom_Categorie, String Libelle_Categorie, Vendeur vendeur) {
         this.Id_Categorie = Id_Categorie;
         this.Nom_Categorie = Nom_Categorie;
         this.Libelle_Categorie = Libelle_Categorie;
+        this.vendeur = vendeur;
     }
 
     public int getId_Categorie() {
@@ -49,6 +51,18 @@ public class Categorie {
     public void setLibelle_Categorie(String Libelle_Categorie) {
         this.Libelle_Categorie = Libelle_Categorie;
     }
+
+    public Vendeur getVendeur() {
+        return vendeur;
+    }
+
+    public void setVendeur(Vendeur vendeur) {
+        this.vendeur = vendeur;
+    }
+
+    
+
+    
 
     @Override
     public int hashCode() {

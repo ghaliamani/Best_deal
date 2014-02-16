@@ -15,23 +15,33 @@ import java.util.Objects;
  */
 public class Abonnement {
     
-    private int Num_Abonnement;
+    private Client client;
+    private Categorie ategorie;
     private Date Date_Abonnement;
 
     public Abonnement() {
     }
 
-    public Abonnement(int Num_Abonnement, Date Date_Abonnement) {
-        this.Num_Abonnement = Num_Abonnement;
+    public Abonnement(Client client, Categorie ategorie, Date Date_Abonnement) {
+        this.client = client;
+        this.ategorie = ategorie;
         this.Date_Abonnement = Date_Abonnement;
     }
 
-    public int getNum_Abonnement() {
-        return Num_Abonnement;
+    public Client getClient() {
+        return client;
     }
 
-    public void setNum_Abonnement(int Num_Abonnement) {
-        this.Num_Abonnement = Num_Abonnement;
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Categorie getAtegorie() {
+        return ategorie;
+    }
+
+    public void setAtegorie(Categorie ategorie) {
+        this.ategorie = ategorie;
     }
 
     public Date getDate_Abonnement() {
@@ -43,35 +53,14 @@ public class Abonnement {
     }
 
     @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + this.Num_Abonnement;
-        hash = 97 * hash + Objects.hashCode(this.Date_Abonnement);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Abonnement other = (Abonnement) obj;
-        if (this.Num_Abonnement != other.Num_Abonnement) {
-            return false;
-        }
-        if (!Objects.equals(this.Date_Abonnement, other.Date_Abonnement)) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
     public String toString() {
-        return "Abonnement{" + "Num_Abonnement=" + Num_Abonnement + ", Date_Abonnement=" + Date_Abonnement + '}';
+        return "Abonnement{" + "client=" + client + ", ategorie=" + ategorie + ", Date_Abonnement=" + Date_Abonnement + '}';
     }
+
+    
+    
+
+    
     
     
 }
