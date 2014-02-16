@@ -138,18 +138,7 @@ public class Client {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 53 * hash + this.Id_Client;
-        hash = 53 * hash + this.Cin_Client;
-        hash = 53 * hash + Objects.hashCode(this.Nom_Client);
-        hash = 53 * hash + Objects.hashCode(this.Prenom_Client);
-        hash = 53 * hash + Objects.hashCode(this.Mot_De_Passe_Client);
-        hash = 53 * hash + Objects.hashCode(this.Adresse_Client);
-        hash = 53 * hash + this.Code_Postal_Client;
-        hash = 53 * hash + Objects.hashCode(this.Ville_Client);
-        hash = 53 * hash + Objects.hashCode(this.Date_Naissance_Client);
-        hash = 53 * hash + Objects.hashCode(this.Email_Client);
-        hash = 53 * hash + (this.Statut_Compte_Client ? 1 : 0);
+        int hash = 7;
         return hash;
     }
 
@@ -162,40 +151,17 @@ public class Client {
             return false;
         }
         final Client other = (Client) obj;
-        if (this.Id_Client != other.Id_Client) {
-            return false;
-        }
         if (this.Cin_Client != other.Cin_Client) {
-            return false;
-        }
-        if (!Objects.equals(this.Nom_Client, other.Nom_Client)) {
-            return false;
-        }
-        if (!Objects.equals(this.Prenom_Client, other.Prenom_Client)) {
-            return false;
-        }
-        if (!Objects.equals(this.Mot_De_Passe_Client, other.Mot_De_Passe_Client)) {
-            return false;
-        }
-        if (!Objects.equals(this.Adresse_Client, other.Adresse_Client)) {
-            return false;
-        }
-        if (this.Code_Postal_Client != other.Code_Postal_Client) {
-            return false;
-        }
-        if (!Objects.equals(this.Ville_Client, other.Ville_Client)) {
-            return false;
-        }
-        if (!Objects.equals(this.Date_Naissance_Client, other.Date_Naissance_Client)) {
             return false;
         }
         if (!Objects.equals(this.Email_Client, other.Email_Client)) {
             return false;
         }
-        if (this.Statut_Compte_Client != other.Statut_Compte_Client) {
-            return false;
-        }
         return true;
     }
+
+    
+
+   
 
 }
