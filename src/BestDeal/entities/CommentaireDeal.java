@@ -17,7 +17,7 @@ public class CommentaireDeal {
     
     private int Id_Commentaire;
     private Client client;
-    private Deals deals;
+    private Deal deals;
     private String Titre_Commentaire;
     private String Libelle_Commentaire;
     private Date Date_Commentaire;
@@ -26,7 +26,7 @@ public class CommentaireDeal {
     public CommentaireDeal() {
     }
 
-    public CommentaireDeal(int Id_Commentaire, Client client, Deals deals, String Titre_Commentaire, String Libelle_Commentaire, Date Date_Commentaire, int Note) {
+    public CommentaireDeal(int Id_Commentaire, Client client, Deal deals, String Titre_Commentaire, String Libelle_Commentaire, Date Date_Commentaire, int Note) {
         this.Id_Commentaire = Id_Commentaire;
         this.client = client;
         this.deals = deals;
@@ -52,11 +52,11 @@ public class CommentaireDeal {
         this.client = client;
     }
 
-    public Deals getDeals() {
+    public Deal getDeals() {
         return deals;
     }
 
-    public void setDeals(Deals deals) {
+    public void setDeals(Deal deals) {
         this.deals = deals;
     }
 
