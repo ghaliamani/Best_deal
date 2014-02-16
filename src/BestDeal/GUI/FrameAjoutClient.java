@@ -7,6 +7,8 @@ package BestDeal.GUI;
 
 import BestDeal.entities.Client;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -80,6 +82,7 @@ public class FrameAjoutClient extends javax.swing.JFrame {
 
         jLabel11.setText("Date de naissance");
 
+        TF_CIN.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         TF_CIN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TF_CINActionPerformed(evt);
@@ -277,19 +280,49 @@ public class FrameAjoutClient extends javax.swing.JFrame {
     private void BT_AjoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_AjoutActionPerformed
         // TODO add your handling code here:
         Client cl = new Client();
-        cl.setCin_Client(Integer.parseInt(TF_CIN.getText()));
-        cl.setNom_Client(TF_Nom.getText());
-        cl.setPrenom_Client(TF_Prenom.getText());
-        cl.setEmail_Client(TF_Email.getText());
+        String regexp = "[0-9]*";
+        Pattern pat = Pattern.compile(regexp);
+        String cin = TF_CIN.getText();
+        Matcher match = pat.matcher(cin);
+        String nom = TF_Nom.getText();
+        String prenom = TF_Prenom.getText();
+        String email = TF_Email.getText();
+        if ((cin.length() != 8) || (!match.find())) {
+            JOptionPane.showMessageDialog(rootPane, "Erreur de saisie");
+        } else {
+            cl.setCin_Client(Integer.parseInt(cin));
+        }
+        regexp = "[a-zA-Z]*";
+        pat = Pattern.compile(regexp);
+        match = pat.matcher(nom);
+        if ((nom.length() > 30) || (!match.find())) {
+            JOptionPane.showMessageDialog(rootPane, "Erreur de saisie");
+        } else {
+            cl.setNom_Client(nom);
+        }
+        match = pat.matcher(prenom);
+        if ((prenom.length() > 30) || (!match.find())) {
+
+            JOptionPane.showMessageDialog(rootPane, "Erreur de saisie");
+        } else {
+            cl.setPrenom_Client(prenom);
+        }
+        regexp = "[a-zA-Z0-9]+@[a-zA-Z]+.[a-zA-Z]+";
+        pat = Pattern.compile(regexp);
+        match = pat.matcher(email);
+        System.out.println(match.find());
+        if (!match.find()) {
+            JOptionPane.showMessageDialog(rootPane, "Erreur de saisie");
+        } else {
+            cl.setEmail_Client(email);
+        }
+
         cl.setMot_De_Passe_Client(PF_Mdp.getText());
         cl.setAdresse_Client(TF_Adresse.getText());
-        cl.setCode_Postal_Client(Integer.parseInt(TF_Postal.getText()));
+        //cl.setCode_Postal_Client(Integer.parseInt(TF_Postal.getText()));
         cl.setVille_Client(TF_Ville.getText());
         //cl.setDate_Naissance_Client((Date)(TF_DateNaissance.getText()));
         System.out.println(cl.toString());
-        
-        
-        
     }//GEN-LAST:event_BT_AjoutActionPerformed
 
     /**
@@ -306,21 +339,18 @@ public class FrameAjoutClient extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameAjoutClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameAjoutClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameAjoutClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameAjoutClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FrameAjoutClient.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new FrameAjoutClient().setVisible(true);
             }
