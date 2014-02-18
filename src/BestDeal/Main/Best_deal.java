@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package best_deal;
+package BestDeal.Main;
 
 /**
  *

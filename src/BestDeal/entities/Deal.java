@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author hamdi
  */
-public class Deals {
+public class Deal {
 
     private int Id_Deal;
     private Categorie categorie;
@@ -28,10 +28,10 @@ public class Deals {
     private int Quantite_Deal;
     private int Nbr_Max_Reservation_Deal;
 
-    public Deals() {
+    public Deal() {
     }
 
-    public Deals(int Id_Deal, Categorie categorie, String Nom_Deal, String Description_Deal, String Description_Detaillé_Deal, String Image_Deal, Double Prix_De_Vente_Deal, Double Prix_Original_Deal, Date Date_Publication_Deal, Date Date_Expiration_Deal, String Condition_De_Vente_Deal, int Quantite_Deal, int Nbr_Max_Reservation_Deal) {
+    public Deal(int Id_Deal, Categorie categorie, String Nom_Deal, String Description_Deal, String Description_Detaillé_Deal, String Image_Deal, Double Prix_De_Vente_Deal, Double Prix_Original_Deal, Date Date_Publication_Deal, Date Date_Expiration_Deal, String Condition_De_Vente_Deal, int Quantite_Deal, int Nbr_Max_Reservation_Deal) {
         this.Id_Deal = Id_Deal;
         this.categorie = categorie;
         this.Nom_Deal = Nom_Deal;
@@ -185,7 +185,7 @@ public class Deals {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Deals other = (Deals) obj;
+        final Deal other = (Deal) obj;
         if (this.Id_Deal != other.Id_Deal) {
             return false;
         }

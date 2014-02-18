@@ -14,13 +14,13 @@ public class LigneReservation {
     
     private int Num_Resrvation;
     private Reservation reservation;
-    private Deals deals;
+    private Deal deals;
     private int Quantite_Commande;
 
     public LigneReservation() {
     }
 
-    public LigneReservation(int Num_Resrvation, Reservation reservation, Deals deals, int Quantite_Commande) {
+    public LigneReservation(int Num_Resrvation, Reservation reservation, Deal deals, int Quantite_Commande) {
         this.Num_Resrvation = Num_Resrvation;
         this.reservation = reservation;
         this.deals = deals;
@@ -45,11 +45,11 @@ public class LigneReservation {
         this.reservation = reservation;
     }
 
-    public Deals getDeals() {
+    public Deal getDeals() {
         return deals;
     }
 
-    public void setDeals(Deals deals) {
+    public void setDeals(Deal deals) {
         this.deals = deals;
     }
     
