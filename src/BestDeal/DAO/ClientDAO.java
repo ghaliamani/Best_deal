@@ -19,7 +19,7 @@ public class ClientDAO {
 
     public void insertClient(Client c) {
 
-        String requete = "insert into Client (cin,nom,prenom) values (?)";
+        String requete = "Insert into Client (cin_client,nom_client,prenom_client,motdepasse_client,adresse_client,Codepostal_client,ville_client,datenaissance_client,email_client,statu_compte_client) values (?)";
         try {
             PreparedStatement ps = BestConnection.getInstance().prepareStatement(requete);
             ps.setInt(1, c.getCin_Client());
@@ -31,6 +31,7 @@ public class ClientDAO {
             ps.setString(8, c.getVille_Client());
             ps.setDate(9, (Date) c.getDate_Naissance_Client());
             ps.setString(10, c.getEmail_Client());
+            ps.setBoolean(11, c.isStatut_Compte_Client());
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
         } catch (SQLException ex) {
