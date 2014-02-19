@@ -29,8 +29,7 @@ public class Client {
     public Client() {
     }
 
-    public Client(int Id_Client, int Cin_Client, String Nom_Client, String Prenom_Client, String Mot_De_Passe_Client, String Adresse_Client, int Code_Postal_Client, String Ville_Client, Date Date_Naissance_Client, String Email_Client, boolean Statut_Compte_Client) {
-        this.Id_Client += 1;
+    public Client(int Cin_Client, String Nom_Client, String Prenom_Client, String Mot_De_Passe_Client, String Adresse_Client, int Code_Postal_Client, String Ville_Client, Date Date_Naissance_Client, String Email_Client, boolean Statut_Compte_Client) {
         this.Cin_Client = Cin_Client;
         this.Nom_Client = Nom_Client;
         this.Prenom_Client = Prenom_Client;
@@ -155,9 +154,5 @@ public class Client {
         }
         return true;
     }
-
-    
-
-   
 
 }
