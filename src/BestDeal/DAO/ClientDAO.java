@@ -6,7 +6,7 @@
 package BestDeal.DAO;
 
 import BestDeal.entities.Client;
-import BestDeal.util.BestConnection;
+import BestDeal.util.MyConnection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -21,7 +21,7 @@ public class ClientDAO {
 
         String requete = "Insert into Client (cin_client,nom_client,prenom_client,motdepasse_client,adresse_client,Codepostal_client,ville_client,datenaissance_client,email_client,statu_compte_client) values (?)";
         try {
-            PreparedStatement ps = BestConnection.getInstance().prepareStatement(requete);
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ps.setInt(1, c.getCin_Client());
             ps.setString(2, c.getNom_Client());
             ps.setString(3, c.getPrenom_Client());
