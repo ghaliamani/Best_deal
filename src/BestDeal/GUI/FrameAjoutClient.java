@@ -5,8 +5,13 @@
  */
 package BestDeal.GUI;
 
+import BestDeal.DAO.ClientDAO;
 import BestDeal.entities.Client;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -280,6 +285,8 @@ public class FrameAjoutClient extends javax.swing.JFrame {
     private void BT_AjoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_AjoutActionPerformed
         // TODO add your handling code here:
         Client cl = new Client();
+        ClientDAO cdao = new ClientDAO();
+        boolean b = false;
         String regexp = "[0-9]*";
         Pattern pat = Pattern.compile(regexp);
         String cin = TF_CIN.getText();
@@ -287,42 +294,116 @@ public class FrameAjoutClient extends javax.swing.JFrame {
         String nom = TF_Nom.getText();
         String prenom = TF_Prenom.getText();
         String email = TF_Email.getText();
+        String mdp = PF_Mdp.getText();
+        String adresse = TF_Adresse.getText();
+        String ville = TF_Ville.getText();
+        String codepostal = TF_Postal.getText();
+        String datenaiss = TF_DateNaissance.getText();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date d = null;
+
         if ((cin.length() != 8) || (!match.find())) {
             JOptionPane.showMessageDialog(rootPane, "Erreur de saisie");
+            b = false;
         } else {
             cl.setCin_Client(Integer.parseInt(cin));
+            b = true;
         }
+
         regexp = "[a-zA-Z]*";
         pat = Pattern.compile(regexp);
         match = pat.matcher(nom);
+
         if ((nom.length() > 30) || (!match.find())) {
             JOptionPane.showMessageDialog(rootPane, "Erreur de saisie");
+            b = false;
         } else {
             cl.setNom_Client(nom);
+            b = true;
         }
-        match = pat.matcher(prenom);
-        if ((prenom.length() > 30) || (!match.find())) {
 
+        match = pat.matcher(prenom);
+
+        if ((prenom.length() > 30) || (!match.find())) {
             JOptionPane.showMessageDialog(rootPane, "Erreur de saisie");
+            b = false;
         } else {
             cl.setPrenom_Client(prenom);
-        }
-        regexp = "[a-zA-Z0-9]+@[a-zA-Z]+.[a-zA-Z]+";
-        pat = Pattern.compile(regexp);
-        match = pat.matcher(email);
-        System.out.println(match.find());
-        if (!match.find()) {
-            JOptionPane.showMessageDialog(rootPane, "Erreur de saisie");
-        } else {
-            cl.setEmail_Client(email);
+            b = true;
         }
 
-        cl.setMot_De_Passe_Client(PF_Mdp.getText());
-        cl.setAdresse_Client(TF_Adresse.getText());
-        //cl.setCode_Postal_Client(Integer.parseInt(TF_Postal.getText()));
-        cl.setVille_Client(TF_Ville.getText());
-        //cl.setDate_Naissance_Client((Date)(TF_DateNaissance.getText()));
-        System.out.println(cl.toString());
+        regexp = "[a-zA-Z0-9]*@[a-zA-Z]+.[a-zA-Z]*";
+        pat = Pattern.compile(regexp);
+        match = pat.matcher(email);
+
+        if (!match.find()) {
+            JOptionPane.showMessageDialog(rootPane, "Erreur de saisie");
+            b = false;
+        } else {
+            cl.setEmail_Client(email);
+            b = true;
+        }
+
+        regexp = "[a-zA-Z0-9]*";
+        pat = Pattern.compile(regexp);
+        match = pat.matcher(mdp);
+
+        if (!match.find()) {
+            JOptionPane.showMessageDialog(rootPane, "Erreur de saisie");
+            b = false;
+        } else {
+            cl.setMot_De_Passe_Client(mdp);
+            b = true;
+        }
+
+        regexp = "[a-zA-Z0-9]*";
+        pat = Pattern.compile(regexp);
+        match = pat.matcher(adresse);
+
+        if (!match.find()) {
+            JOptionPane.showMessageDialog(rootPane, "Erreur de saisie");
+            b = false;
+        } else {
+            cl.setAdresse_Client(adresse);
+            b = true;
+        }
+
+        regexp = "[0-9]*";
+        pat = Pattern.compile(regexp);
+        match = pat.matcher(codepostal);
+
+        if (!match.find()) {
+            JOptionPane.showMessageDialog(rootPane, "Erreur de saisie");
+            b = false;
+        } else {
+            cl.setCode_Postal_Client(Integer.parseInt(codepostal));
+            b = true;
+        }
+
+        regexp = "[a-zA-Z]*";
+        pat = Pattern.compile(regexp);
+        match = pat.matcher(ville);
+
+        if (!match.find()) {
+            JOptionPane.showMessageDialog(rootPane, "Erreur de saisie");
+            b = false;
+        } else {
+            cl.setVille_Client(ville);
+            b = true;
+        }
+        regexp = "[0-9][0-9]/[0-9][0-9]/[0-9][0-9][0-9][0-9]";
+        pat = Pattern.compile(regexp);
+        match = pat.matcher(datenaiss);
+        try {
+            d = sdf.parse(datenaiss);
+        } catch (ParseException ex) {
+            Logger.getLogger(FrameAjoutClient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        cl.setDate_Naissance_Client(d);
+
+        if (b == true) {
+            cdao.insertClient(cl);
+        }
     }//GEN-LAST:event_BT_AjoutActionPerformed
 
     /**
