@@ -9,7 +9,11 @@ import BestDeal.entities.Client;
 import BestDeal.util.MyConnection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -37,7 +41,34 @@ public class ClientDAO {
         } catch (SQLException ex) {
             //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors de l'insertion " + ex.getMessage());
-            
+
+        }
+    }
+
+    public List<Client> DisplayAllClients() {
+        List<Client> clientlist = new ArrayList<>();
+        String requete = "Select * from client";
+        try {
+            Statement statement = MyConnection.getInstance().createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+            while (resultat.next()) {
+                Client cli = new Client();
+                cli.setCin_Client(resultat.getInt(1));
+                cli.setNom_Client(resultat.getString(2));
+                cli.setPrenom_Client(resultat.getString(3));
+                cli.setMot_De_Passe_Client(resultat.getString(4));
+                cli.setAdresse_Client(resultat.getString(5));
+                cli.setCode_Postal_Client(resultat.getInt(6));
+                cli.setVille_Client(resultat.getString(7));
+                cli.setDate_Naissance_Client(resultat.getDate(8));
+                cli.setEmail_Client(resultat.getString(9));
+                cli.setStatut_Compte_Client(resultat.getBoolean(10));
+                clientlist.add(cli);
+            }
+            return clientlist;
+        } catch (SQLException ex) {
+            System.out.println("Erreur lors du chargement de la liste des clients " + ex.getMessage());
+            return null;
         }
     }
 
