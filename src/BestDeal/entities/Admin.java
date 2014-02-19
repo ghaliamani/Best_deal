@@ -15,7 +15,7 @@ public class Admin {
 
     private String Login_Admin;
     private String Mot_De_Passe_Admin;
-
+    private String u;
     public Admin() {
     }
 
@@ -69,6 +69,5 @@ public class Admin {
     @Override
     public String toString() {
         return "Admin{" + "Login_Admin=" + Login_Admin + ", Mot_De_Passe_Admin=" + Mot_De_Passe_Admin + '}';
-    }
-
+    }   
 }
