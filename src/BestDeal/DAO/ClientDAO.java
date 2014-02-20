@@ -22,6 +22,7 @@ import java.util.List;
 public class ClientDAO {
 
     public void insertClient(Client c) {
+        
 
         String requete = "Insert into Client (id_client,cin_client,nom_client,prenom_client,motdepasse_client,adresse_client,Codepostal_client,Ville_client,datenaissance_client,email_client,Statut_compte_client) values (?)";
         try {
