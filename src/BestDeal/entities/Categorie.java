@@ -36,6 +36,9 @@ public class Categorie {
         this.Id_Categorie = Id_Categorie;
     }
 
+    
+    
+
     public String getNom_Categorie() {
         return Nom_Categorie;
     }
@@ -98,5 +101,7 @@ public class Categorie {
     public String toString() {
         return "Categorie{" + "Id_Categorie=" + Id_Categorie + ", Nom_Categorie=" + Nom_Categorie + ", Libelle_Categorie=" + Libelle_Categorie + '}';
     }
+
+    
     
 }
