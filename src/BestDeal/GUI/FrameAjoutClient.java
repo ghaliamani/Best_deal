@@ -400,7 +400,7 @@ public class FrameAjoutClient extends javax.swing.JFrame {
             Logger.getLogger(FrameAjoutClient.class.getName()).log(Level.SEVERE, null, ex);
         }
         cl.setDate_Naissance_Client(d);
-
+        System.out.println(cl);
         if (b == true) {
             cdao.insertClient(cl);
         }
