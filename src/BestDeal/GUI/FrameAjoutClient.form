@@ -96,7 +96,7 @@
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
-                                          <Component id="jPasswordField2" min="-2" pref="111" max="-2" attributes="0"/>
+                                          <Component id="PF_Cmdp" min="-2" pref="111" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -146,7 +146,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jPasswordField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="PF_Cmdp" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -288,7 +288,7 @@
         </Component>
         <Component class="javax.swing.JPasswordField" name="PF_Mdp">
         </Component>
-        <Component class="javax.swing.JPasswordField" name="jPasswordField2">
+        <Component class="javax.swing.JPasswordField" name="PF_Cmdp">
         </Component>
       </SubComponents>
     </Container>

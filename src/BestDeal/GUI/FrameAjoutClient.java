@@ -61,7 +61,7 @@ public class FrameAjoutClient extends javax.swing.JFrame {
         BT_Ajout = new javax.swing.JButton();
         BT_Quitter = new javax.swing.JButton();
         PF_Mdp = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        PF_Cmdp = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -184,7 +184,7 @@ public class FrameAjoutClient extends javax.swing.JFrame {
                                         .addGap(52, 52, 52))
                                     .addGroup(Pan_AjoutLayout.createSequentialGroup()
                                         .addGap(96, 96, 96)
-                                        .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(PF_Cmdp, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(36, 36, 36))
             .addGroup(Pan_AjoutLayout.createSequentialGroup()
@@ -220,7 +220,7 @@ public class FrameAjoutClient extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Pan_AjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PF_Cmdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
                 .addGroup(Pan_AjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -295,11 +295,12 @@ public class FrameAjoutClient extends javax.swing.JFrame {
         String prenom = TF_Prenom.getText();
         String email = TF_Email.getText();
         String mdp = PF_Mdp.getText();
+        String cmdp = PF_Cmdp.getText();
         String adresse = TF_Adresse.getText();
         String ville = TF_Ville.getText();
         String codepostal = TF_Postal.getText();
         String datenaiss = TF_DateNaissance.getText();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date d = null;
 
         if ((cin.length() != 8) || (!match.find())) {
@@ -310,7 +311,7 @@ public class FrameAjoutClient extends javax.swing.JFrame {
             b = true;
         }
 
-        regexp = "[a-zA-Z]*";
+        regexp = "[a-zA-Z]+";
         pat = Pattern.compile(regexp);
         match = pat.matcher(nom);
 
@@ -332,7 +333,7 @@ public class FrameAjoutClient extends javax.swing.JFrame {
             b = true;
         }
 
-        regexp = "[a-zA-Z0-9]*@[a-zA-Z]+.[a-zA-Z]*";
+        regexp = "[a-zA-Z0-9]+@[a-zA-Z]+.[a-zA-Z]+";
         pat = Pattern.compile(regexp);
         match = pat.matcher(email);
 
@@ -344,19 +345,22 @@ public class FrameAjoutClient extends javax.swing.JFrame {
             b = true;
         }
 
-        regexp = "[a-zA-Z0-9]*";
+        regexp = "[a-zA-Z0-9]+";
         pat = Pattern.compile(regexp);
         match = pat.matcher(mdp);
 
-        if (!match.find()) {
+        if ((!match.find())&&(mdp.length()<8)) {
             JOptionPane.showMessageDialog(rootPane, "Erreur de saisie");
             b = false;
         } else {
             cl.setMot_De_Passe_Client(mdp);
             b = true;
         }
+        
+        match = pat.matcher(cmdp);
+        
 
-        regexp = "[a-zA-Z0-9]*";
+        regexp = "[a-zA-Z0-9]+";
         pat = Pattern.compile(regexp);
         match = pat.matcher(adresse);
 
@@ -368,7 +372,7 @@ public class FrameAjoutClient extends javax.swing.JFrame {
             b = true;
         }
 
-        regexp = "[0-9]*";
+        regexp = "[0-9]+";
         pat = Pattern.compile(regexp);
         match = pat.matcher(codepostal);
 
@@ -380,7 +384,7 @@ public class FrameAjoutClient extends javax.swing.JFrame {
             b = true;
         }
 
-        regexp = "[a-zA-Z]*";
+        regexp = "[a-zA-Z]+";
         pat = Pattern.compile(regexp);
         match = pat.matcher(ville);
 
@@ -391,7 +395,7 @@ public class FrameAjoutClient extends javax.swing.JFrame {
             cl.setVille_Client(ville);
             b = true;
         }
-        regexp = "[0-9][0-9]/[0-9][0-9]/[0-9][0-9][0-9][0-9]";
+        regexp = "[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]";
         pat = Pattern.compile(regexp);
         match = pat.matcher(datenaiss);
         try {
@@ -441,6 +445,7 @@ public class FrameAjoutClient extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BT_Ajout;
     private javax.swing.JButton BT_Quitter;
+    private javax.swing.JPasswordField PF_Cmdp;
     private javax.swing.JPasswordField PF_Mdp;
     private javax.swing.JPanel Pan_Ajout;
     private javax.swing.JTextField TF_Adresse;
@@ -462,6 +467,5 @@ public class FrameAjoutClient extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPasswordField jPasswordField2;
     // End of variables declaration//GEN-END:variables
 }
