@@ -23,14 +23,15 @@ public class ClientDAO {
 
     public void insertClient(Client c) {
 
-        String requete = "Insert into Client (cin_client,nom_client,prenom_client,motdepasse_client,adresse_client,Codepostal_client,ville_client,datenaissance_client,email_client,statu_compte_client) values (?)";
+        String requete = "Insert into Client (id_client,cin_client,nom_client,prenom_client,motdepasse_client,adresse_client,Codepostal_client,Ville_client,datenaissance_client,email_client,Statut_compte_client) values (?)";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
-            ps.setInt(1, c.getCin_Client());
-            ps.setString(2, c.getNom_Client());
-            ps.setString(3, c.getPrenom_Client());
-            ps.setString(4, c.getMot_De_Passe_Client());
-            ps.setString(5, c.getAdresse_Client());
+            ps.setInt(1, c.getId_Client());
+            ps.setInt(2, c.getCin_Client());
+            ps.setString(3, c.getNom_Client());
+            ps.setString(4, c.getPrenom_Client());
+            ps.setString(5, c.getMot_De_Passe_Client());
+            ps.setString(6, c.getAdresse_Client());
             ps.setInt(7, c.getCode_Postal_Client());
             ps.setString(8, c.getVille_Client());
             ps.setDate(9, (Date) c.getDate_Naissance_Client());
@@ -53,16 +54,17 @@ public class ClientDAO {
             ResultSet resultat = statement.executeQuery(requete);
             while (resultat.next()) {
                 Client cli = new Client();
-                cli.setCin_Client(resultat.getInt(1));
-                cli.setNom_Client(resultat.getString(2));
-                cli.setPrenom_Client(resultat.getString(3));
-                cli.setMot_De_Passe_Client(resultat.getString(4));
-                cli.setAdresse_Client(resultat.getString(5));
-                cli.setCode_Postal_Client(resultat.getInt(6));
-                cli.setVille_Client(resultat.getString(7));
-                cli.setDate_Naissance_Client(resultat.getDate(8));
-                cli.setEmail_Client(resultat.getString(9));
-                cli.setStatut_Compte_Client(resultat.getBoolean(10));
+                cli.setId_Client(resultat.getInt(1));
+                cli.setCin_Client(resultat.getInt(2));
+                cli.setNom_Client(resultat.getString(3));
+                cli.setPrenom_Client(resultat.getString(4));
+                cli.setMot_De_Passe_Client(resultat.getString(5));
+                cli.setAdresse_Client(resultat.getString(6));
+                cli.setCode_Postal_Client(resultat.getInt(7));
+                cli.setVille_Client(resultat.getString(8));
+                cli.setDate_Naissance_Client(resultat.getDate(9));
+                cli.setEmail_Client(resultat.getString(10));
+                cli.setStatut_Compte_Client(resultat.getBoolean(11));
                 clientlist.add(cli);
             }
             return clientlist;

@@ -42,6 +42,10 @@ public class Client {
         this.Statut_Compte_Client = Statut_Compte_Client;
     }
 
+    public void setId_Client(int Id_Client) {
+        this.Id_Client = Id_Client;
+    }
+    
     public int getId_Client() {
         return Id_Client;
     }
