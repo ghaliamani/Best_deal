@@ -65,6 +65,9 @@ public class FrameAjoutClient extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        Pan_Ajout.setBackground(new java.awt.Color(153, 153, 255));
+        Pan_Ajout.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         jLabel1.setText("Ajout Client");
 
         jLabel2.setText("CIN");
@@ -156,48 +159,41 @@ public class FrameAjoutClient extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(TF_Email, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(Pan_AjoutLayout.createSequentialGroup()
-                        .addGroup(Pan_AjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(Pan_AjoutLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(PF_Mdp, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(Pan_AjoutLayout.createSequentialGroup()
-                                .addGroup(Pan_AjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel8))
-                                .addGap(136, 136, 136)
-                                .addGroup(Pan_AjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(TF_Postal)
-                                    .addComponent(TF_Adresse)
-                                    .addComponent(TF_Ville, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                                    .addComponent(TF_DateNaissance, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addGroup(Pan_AjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel8)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Pan_AjoutLayout.createSequentialGroup()
-                                .addGroup(Pan_AjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(BT_Ajout)
-                                    .addComponent(jLabel7))
-                                .addGroup(Pan_AjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(Pan_AjoutLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(BT_Quitter)
-                                        .addGap(52, 52, 52))
-                                    .addGroup(Pan_AjoutLayout.createSequentialGroup()
-                                        .addGap(96, 96, 96)
-                                        .addComponent(PF_Cmdp, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(jLabel7)
+                                .addGap(207, 207, 207)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                        .addGroup(Pan_AjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PF_Mdp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PF_Cmdp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TF_Adresse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TF_Postal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TF_Ville, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TF_DateNaissance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(36, 36, 36))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Pan_AjoutLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BT_Ajout)
+                .addGap(107, 107, 107)
+                .addComponent(BT_Quitter)
+                .addGap(197, 197, 197))
             .addGroup(Pan_AjoutLayout.createSequentialGroup()
-                .addGap(162, 162, 162)
+                .addGap(285, 285, 285)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Pan_AjoutLayout.setVerticalGroup(
             Pan_AjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Pan_AjoutLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(16, 16, 16)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Pan_AjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(TF_CIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -234,14 +230,14 @@ public class FrameAjoutClient extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(TF_Ville, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(Pan_AjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(Pan_AjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
                     .addComponent(TF_DateNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(32, 32, 32)
                 .addGroup(Pan_AjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BT_Ajout)
-                    .addComponent(BT_Quitter))
-                .addContainerGap(28, Short.MAX_VALUE))
+                    .addComponent(BT_Quitter)
+                    .addComponent(BT_Ajout))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -275,7 +271,7 @@ public class FrameAjoutClient extends javax.swing.JFrame {
     }//GEN-LAST:event_TF_DateNaissanceActionPerformed
 
     private void BT_QuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_QuitterActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_BT_QuitterActionPerformed
 
     private void TF_CINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_CINActionPerformed

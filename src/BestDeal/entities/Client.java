@@ -27,9 +27,10 @@ public class Client {
     private boolean Statut_Compte_Client;
 
     public Client() {
+        this.Statut_Compte_Client = true;
     }
 
-    public Client(int Cin_Client, String Nom_Client, String Prenom_Client, String Mot_De_Passe_Client, String Adresse_Client, int Code_Postal_Client, String Ville_Client, Date Date_Naissance_Client, String Email_Client) {
+    public Client(int Cin_Client, String Nom_Client, String Prenom_Client, String Mot_De_Passe_Client, String Adresse_Client, int Code_Postal_Client, String Ville_Client, Date Date_Naissance_Client, String Email_Client, boolean Statut_Compte_Client) {
         this.Cin_Client = Cin_Client;
         this.Nom_Client = Nom_Client;
         this.Prenom_Client = Prenom_Client;
@@ -39,7 +40,7 @@ public class Client {
         this.Ville_Client = Ville_Client;
         this.Date_Naissance_Client = Date_Naissance_Client;
         this.Email_Client = Email_Client;
-        this.Statut_Compte_Client = true;
+        this.Statut_Compte_Client = Statut_Compte_Client;
     }
 
     public void setId_Client(int Id_Client) {
