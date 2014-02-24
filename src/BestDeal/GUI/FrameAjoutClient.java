@@ -57,18 +57,18 @@ public class FrameAjoutClient extends javax.swing.JFrame {
         TF_Adresse = new javax.swing.JTextField();
         TF_Postal = new javax.swing.JTextField();
         TF_Ville = new javax.swing.JTextField();
-        TF_DateNaissance = new javax.swing.JTextField();
         BT_Ajout = new javax.swing.JButton();
         BT_Quitter = new javax.swing.JButton();
         PF_Mdp = new javax.swing.JPasswordField();
         PF_Cmdp = new javax.swing.JPasswordField();
+        TF_DateNaissance = new org.jdesktop.swingx.JXDatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Pan_Ajout.setBackground(new java.awt.Color(153, 153, 255));
         Pan_Ajout.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel1.setText("Ajout Client");
+        jLabel1.setText("Inscription");
 
         jLabel2.setText("CIN");
 
@@ -112,12 +112,6 @@ public class FrameAjoutClient extends javax.swing.JFrame {
         TF_Ville.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TF_VilleActionPerformed(evt);
-            }
-        });
-
-        TF_DateNaissance.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_DateNaissanceActionPerformed(evt);
             }
         });
 
@@ -169,13 +163,13 @@ public class FrameAjoutClient extends javax.swing.JFrame {
                                 .addComponent(jLabel7)
                                 .addGap(207, 207, 207)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
-                        .addGroup(Pan_AjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PF_Mdp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PF_Cmdp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TF_Adresse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TF_Postal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TF_Ville, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TF_DateNaissance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(Pan_AjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(PF_Mdp, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                            .addComponent(PF_Cmdp, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                            .addComponent(TF_Adresse, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                            .addComponent(TF_Postal, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                            .addComponent(TF_Ville, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                            .addComponent(TF_DateNaissance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(36, 36, 36))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Pan_AjoutLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -233,7 +227,7 @@ public class FrameAjoutClient extends javax.swing.JFrame {
                 .addGroup(Pan_AjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
                     .addComponent(TF_DateNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addGap(30, 30, 30)
                 .addGroup(Pan_AjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BT_Quitter)
                     .addComponent(BT_Ajout))
@@ -266,10 +260,6 @@ public class FrameAjoutClient extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_PostalActionPerformed
 
-    private void TF_DateNaissanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_DateNaissanceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_DateNaissanceActionPerformed
-
     private void BT_QuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_QuitterActionPerformed
         dispose();
     }//GEN-LAST:event_BT_QuitterActionPerformed
@@ -295,9 +285,9 @@ public class FrameAjoutClient extends javax.swing.JFrame {
         String adresse = TF_Adresse.getText();
         String ville = TF_Ville.getText();
         String codepostal = TF_Postal.getText();
-        String datenaiss = TF_DateNaissance.getText();
+        Date datenaiss = TF_DateNaissance.getDate();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date d = null;
+        
 
         if ((cin.length() != 8) || (!match.find())) {
             JOptionPane.showMessageDialog(rootPane, "Erreur de saisie");
@@ -345,16 +335,15 @@ public class FrameAjoutClient extends javax.swing.JFrame {
         pat = Pattern.compile(regexp);
         match = pat.matcher(mdp);
 
-        if ((!match.find())&&(mdp.length()<8)) {
+        if ((!match.find()) && (mdp.length() < 8)) {
             JOptionPane.showMessageDialog(rootPane, "Erreur de saisie");
             b = false;
         } else {
             cl.setMot_De_Passe_Client(mdp);
             b = true;
         }
-        
+
         match = pat.matcher(cmdp);
-        
 
         regexp = "[a-zA-Z0-9]+";
         pat = Pattern.compile(regexp);
@@ -391,18 +380,20 @@ public class FrameAjoutClient extends javax.swing.JFrame {
             cl.setVille_Client(ville);
             b = true;
         }
-        regexp = "[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]";
-        pat = Pattern.compile(regexp);
-        match = pat.matcher(datenaiss);
-        try {
-            d = sdf.parse(datenaiss);
-        } catch (ParseException ex) {
-            Logger.getLogger(FrameAjoutClient.class.getName()).log(Level.SEVERE, null, ex);
+        
+        if (datenaiss==null) {
+            JOptionPane.showMessageDialog(rootPane, "Erreur de saisie");
+            b = false;
+        } else {
+            cl.setDate_Naissance_Client(datenaiss);
+            b = true;
         }
-        cl.setDate_Naissance_Client(d);
         System.out.println(cl);
         if (b == true) {
             cdao.insertClient(cl);
+        } else {
+
+            JOptionPane.showMessageDialog(rootPane, "Verfier vos champs");
         }
     }//GEN-LAST:event_BT_AjoutActionPerformed
 
@@ -446,7 +437,7 @@ public class FrameAjoutClient extends javax.swing.JFrame {
     private javax.swing.JPanel Pan_Ajout;
     private javax.swing.JTextField TF_Adresse;
     private javax.swing.JTextField TF_CIN;
-    private javax.swing.JTextField TF_DateNaissance;
+    private org.jdesktop.swingx.JXDatePicker TF_DateNaissance;
     private javax.swing.JTextField TF_Email;
     private javax.swing.JTextField TF_Nom;
     private javax.swing.JTextField TF_Postal;

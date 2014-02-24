@@ -7,7 +7,6 @@ package BestDeal.DAO;
 
 import BestDeal.entities.Client;
 import BestDeal.util.MyConnection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,7 +25,6 @@ public class ClientDAO {
     public void insertClient(Client c) {
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        System.out.println(dateFormat.format(c.getDate_Naissance_Client()));
 
         String requete = "Insert into Client (cin_client,nom_client,prenom_client,motdepasse_client,adresse_client,Codepostal_client,Ville_client,date_naissance_client,email_client,Statut_compte_client) values (?,?,?,?,?,?,?,?,?,?)";
         try {
