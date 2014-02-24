@@ -7,11 +7,8 @@ package BestDeal.GUI;
 
 import BestDeal.DAO.ClientDAO;
 import BestDeal.entities.Client;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -287,7 +284,6 @@ public class FrameAjoutClient extends javax.swing.JFrame {
         String codepostal = TF_Postal.getText();
         Date datenaiss = TF_DateNaissance.getDate();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        
 
         if ((cin.length() != 8) || (!match.find())) {
             JOptionPane.showMessageDialog(rootPane, "Erreur de saisie");
@@ -380,8 +376,8 @@ public class FrameAjoutClient extends javax.swing.JFrame {
             cl.setVille_Client(ville);
             b = true;
         }
-        
-        if (datenaiss==null) {
+
+        if (datenaiss == null) {
             JOptionPane.showMessageDialog(rootPane, "Erreur de saisie");
             b = false;
         } else {
